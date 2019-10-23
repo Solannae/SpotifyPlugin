@@ -43,7 +43,7 @@ namespace SpotifyPlugin
         public static void ChrashDump(Exception e)
         {
             string chrash = String.Format("\n{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
-            chrash += String.Format("\nSpotifyPlugin version {0}", System.Reflection.Assembly.GetCallingAssembly().GetName().Version.ToString());
+            chrash += String.Format("\nSpotifyPlugin (Solannae) version {0}", System.Reflection.Assembly.GetCallingAssembly().GetName().Version.ToString());
             chrash += String.Format("\nCulture: {0}", CultureInfo.InstalledUICulture.ToString());
             chrash += String.Format("\nOSVersion: {0}", Environment.OSVersion.ToString());
             chrash += String.Format("\n----");

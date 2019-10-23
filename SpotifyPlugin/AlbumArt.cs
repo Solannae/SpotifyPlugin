@@ -26,7 +26,7 @@ namespace SpotifyPlugin
                     resolution = 300;
                 }
 
-                Out.Log(Rainmeter.API.LogType.Notice, "Artwork change detected");
+                Out.Log(Rainmeter.API.LogType.Notice, $"Artwork change detected: {albumUri}");
                 // Update URI
                 AlbumUri = albumUri;
                 // Default image

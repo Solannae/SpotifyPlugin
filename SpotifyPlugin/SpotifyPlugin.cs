@@ -104,6 +104,8 @@ namespace SpotifyPlugin
                 // TODO
                 case "albumart":
                 case "cover":
+                    Out.Log(Rainmeter.API.LogType.Notice, "Loading new album art");
+                    Out.Log(Rainmeter.API.LogType.Notice, $"Loaded album art: {parent.Status?.Item?.Album?.Uri}");
                     return AlbumArt.getArt(parent.Status?.Item?.Album?.Uri, artResolution, defaultPath, coverPath);
 
             }
@@ -141,7 +143,7 @@ namespace SpotifyPlugin
                     return (parent.Status?.Item?.DurationMs).GetValueOrDefault();
 
                 case "progress":
-                    double? o = parent.Status?.ProgressMs / parent.Status?.Item?.DurationMs;
+                    double? o = 1.0 * parent.Status?.ProgressMs / parent.Status?.Item?.DurationMs;
                     return o.GetValueOrDefault();
             }
             //API.Log(API.LogType.Error, "SpotifyPlugin: Type=" + measureType + " not valid");
@@ -301,7 +303,7 @@ namespace SpotifyPlugin
         public static void Initialize(ref IntPtr data, IntPtr rm)
         {
             Rainmeter = rm;
-            if (parent == null) { parent = new Parent(); }
+            if (parent == null) { parent = new Parent(); };
             data = GCHandle.ToIntPtr(GCHandle.Alloc(new Measure(parent)));
         }
 
